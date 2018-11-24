@@ -4,12 +4,28 @@ input,
 select,
 optgroup,
 textarea {
-	color: $color__text-main;
-	font-family: $font__main;
-	@include font-size(1);
-	line-height: $font__line-height-body;
+  color: $color__text-main;
+  font-family: $font__main;
+  @include font-size(1);
+  line-height: $font__line-height-body;
 }
 
 @import "headings";
 
 @import "copy";
+
+@font-face {
+  font-family: "intro_regular";
+  src: url("fonts/intro-webfont.woff2") format("woff2"),
+    url("fonts/intro-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "alternategothic2_btregular";
+  src: url("fonts/alternate-_gothic-webfont.woff2") format("woff2"),
+    url("fonts/alternate-_gothic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

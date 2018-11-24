@@ -1,0 +1,187 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+Here's where you can start getting into the good stuff.
+This size will work on iPads, other tablets, and desktops.
+So you can start working with more styles, background images,
+and other resources. You'll also notice the grid starts to
+come into play. Have fun!
+
+******************************************************************/
+
+/*********************
+GENERAL STYLES
+*********************/
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+/*********************
+HEADER STYLES
+*********************/
+
+.site-header {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+}
+
+#mobile-navigation {
+  display: none;
+}
+
+.widget .menu-mobile-container {
+  display: block;
+}
+
+.menu-left-menu-container,
+.menu-right-menu-container {
+  width: 33%;
+}
+.logo {
+  width: 33%;
+  margin: 0 auto;
+}
+
+.main-navigation {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2em;
+}
+
+/*********************
+HERO STYLES
+*********************/
+
+.hero-large {
+  color: #fff;
+  font-size: 45px;
+  width: 800px;
+  text-align: center;
+}
+
+.hero-medium {
+  color: #fff;
+  font-size: 24px;
+  width: 450px;
+  text-align: center;
+}
+
+/*********************
+FEATURE STYLES
+*********************/
+.features {
+  width: 70%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+
+  .feature {
+    display: flex;
+    width: 28%;
+    img {
+      height: 80px;
+      width: auto;
+    }
+  }
+}
+
+/*********************
+SWIPER STYLES
+*********************/
+.swiper-container-horizontal > .swiper-scrollbar {
+  display: block;
+  position: relative !important;
+  height: 5px;
+  width: 80% !important;
+  margin: 0 auto;
+}
+
+/*********************
+BARBER STYLES
+*********************/
+
+.barbers {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  max-width: 1000px;
+  margin: 0 auto;
+  .barber {
+    width: 28%;
+  }
+}
+
+/*********************
+PRODUCTS STYLES
+*********************/
+
+.products {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.woocommerce ul.products[class*="columns-"] li.product,
+.woocommerce-page ul.products[class*="columns-"] li.product {
+  float: none;
+  width: 22%;
+}
+
+#mc_embed_signup {
+  width: 50% !important;
+}
+
+#mc_embed_signup .mc-field-group {
+  width: 100% !important;
+}
+
+#mc_embed_signup .mc-field-group input {
+  padding: 10px 25px 10px 25px !important;
+  font-size: 20px !important;
+}
+
+/*********************
+FOOTER STYLES
+*********************/
+
+.meta-footer {
+  padding: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.ill-cut-you {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.widget {
+  margin: 0 1.5em 1.5em;
+}
+
+.site-info {
+  width: 90%;
+  margin: 0 auto;
+  .copyright {
+    font-size: 13px;
+    float: left;
+  }
+
+  .site-credit {
+    font-size: 13px;
+    float: right;
+  }
+}

@@ -21,38 +21,44 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+
+		/* toggle nav */
+		$(".menu-toggle").on("click", function(){
+			$("#mobile-navigation").slideToggle();
+			$(this).toggleClass("active");
+		});
+
+	});
+</script>
+
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'rough-hands' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$rough_hands_description = get_bloginfo( 'description', 'display' );
-			if ( $rough_hands_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $rough_hands_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'rough-hands' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'rough-hands' ); ?></button>
 			<?php
 			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
+				'theme_location' => 'left-menu',
+			) );
+			?>
+			<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img style="fill:#fff;" src="http://roughhands.local/wp-content/uploads/2018/11/logo_long@2x.png"></a>
+			<?php
+			wp_nav_menu( array(
+				'theme_location' => 'right-menu',
 			) );
 			?>
 		</nav><!-- #site-navigation -->
+
 	</header><!-- #masthead -->
+
+	<nav id="mobile-navigation">
+		<?php wp_nav_menu( array( 'theme_location' => 'mobile' ) ); ?>
+	</nav>
 
 	<div id="content" class="site-content">

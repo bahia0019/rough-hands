@@ -110,11 +110,57 @@ function rough_hands_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'rough-hands' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<p class="widget-title">',
+		'after_title'   => '</p>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer 1', 'rough-hands' ),
+		'id'            => 'footer-1',
+		'description'   => esc_html__( 'Add widgets here.', 'rough-hands' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<p class="widget-title">',
+		'after_title'   => '</p>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer 2', 'rough-hands' ),
+		'id'            => 'footer-2',
+		'description'   => esc_html__( 'Add widgets here.', 'rough-hands' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<p class="widget-title">',
+		'after_title'   => '</p>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer 3', 'rough-hands' ),
+		'id'            => 'footer-3',
+		'description'   => esc_html__( 'Add widgets here.', 'rough-hands' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<p class="widget-title">',
+		'after_title'   => '</p>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer 4', 'rough-hands' ),
+		'id'            => 'footer-4',
+		'description'   => esc_html__( 'Add widgets here.', 'rough-hands' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<p class="widget-title">',
+		'after_title'   => '</p>',
+	) );
+
+
+
+
+
 }
 add_action( 'widgets_init', 'rough_hands_widgets_init' );
+
 
 /**
  * Enqueue scripts and styles.
@@ -122,13 +168,30 @@ add_action( 'widgets_init', 'rough_hands_widgets_init' );
 function rough_hands_scripts() {
 	wp_enqueue_style( 'rough-hands-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'rough-hands-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css?family=PT+Serif' );
+
+	wp_enqueue_script( 'rough-hands-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20181215', true );
 
 	wp_enqueue_script( 'rough-hands-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
+	
+	// wp_enqueue_script( 'animations', get_template_directory_uri() . '/js/animations.js' );
+	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	//Adds Greensock support.
+	wp_enqueue_script( 'greensock', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js');
+
+	//Adds Scrollmagik support.
+	wp_enqueue_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js' );
+	// wp_enqueue_script( 'scrollmagic_indicators', plugin_dir_url( dirname( __FILE__ ) ) . 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js' );
+	wp_enqueue_script( 'scrollmagic_gsap_support', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', array(), '20180816' );
+
+	//Adds Swiper Slider support.
+	wp_enqueue_script( 'swiper_scripts', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js', array(), '20180816'  );
+	wp_enqueue_style( 'swiper_styles', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css' );
+
 }
 add_action( 'wp_enqueue_scripts', 'rough_hands_scripts' );
 
@@ -159,3 +222,52 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+/**
+ * Load Custom Post Types.
+ */
+require get_template_directory() . '/inc/custom-post-types.php';
+
+
+
+/**
+ * 
+ */
+register_nav_menus( array(
+	'left-menu' => esc_html__( 'Left Menu', 'rough-hands' ),
+) );
+
+register_nav_menus( array(
+	'right-menu' => esc_html__( 'Right Menu', 'rough-hands' ),
+) );
+
+register_nav_menus( array(
+	'mobile' => esc_html__( 'Mobile', 'rough-hands' ),
+) );
+
+
+
+
+/************************
+ * WooCommerce functions
+*************************/
+
+
+/**
+ * Change Add To Cart Button Text
+ */
+
+function roughhands_custom_cart_button_text() {
+	return __( 'Reserve', 'woo_custom_cart_button_text' );
+}
+// add_filter('single_add_to_cart_text', 'roughhands_custom_cart_button_text');
+add_filter( 'woocommerce_product_add_to_cart_text', 'roughhands_custom_cart_button_text' );  // 2.1 +
+  
+
+/**
+ * Add short decription to products.
+ */
+function roughhands_desc_product() {
+    the_excerpt();
+}
+add_action( 'woocommerce_after_shop_loop_item_title', 'roughhands_desc_product', 40 );

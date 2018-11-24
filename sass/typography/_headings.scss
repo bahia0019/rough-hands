@@ -1,3 +1,32 @@
-h1, h2, h3, h4, h5, h6 {
-	clear: both;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+}
+
+h1 {
+  font-family: "intro_regular";
+}
+
+h2 {
+  font-family: "intro_regular";
+  &.section {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
+
+h2.woocommerce-loop-product__title,
+h3 {
+  font-family: "alternategothic2_btregular";
+  font-size: 22px;
+  font-weight: 100;
+  margin-bottom: 0;
+}
+
+h4 {
+  font-family: "intro_regular";
 }

@@ -1,0 +1,331 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Base Mobile Stylesheet
+
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. This is called at the top of the main stylsheet
+and will be used across all viewports.
+
+******************************************************************/
+
+/*********************
+GENERAL STYLES
+*********************/
+
+.divider {
+  width: 120px;
+  height: 20px;
+  background-image: url("http://roughhands.local/wp-content/uploads/2018/11/divider.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 80px auto;
+}
+
+.x-separator {
+  width: 10px;
+  height: 10px;
+  background-image: url("http://roughhands.local/wp-content/uploads/2018/11/orn_x@2x.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 auto 1.5em;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+.site-header {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  height: 25%;
+}
+
+#mobile-navigation {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 75%;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  z-index: 100;
+  top: 25%;
+}
+
+#mobile-navigation ul {
+  display: flex;
+  flex-direction: column;
+  font-family: "alternategothic2_btregular";
+  font-size: 48px;
+  font-weight: 100;
+  margin: 0.5em 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 100;
+  text-align: center;
+  li {
+    color: #fff;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+.logo {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.menu-toggle {
+  text-decoration: none;
+  margin: 1em auto;
+}
+
+/*********************
+HERO STYLES
+*********************/
+
+.hero {
+  position: relative;
+}
+.hero img {
+  height: 100vh;
+  object-fit: cover;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-large {
+  color: #fff;
+  font-size: 28px;
+  width: 90%;
+  text-align: center;
+}
+
+.hero-medium {
+  color: #fff;
+  font-size: 18px;
+  width: 75%;
+  text-align: center;
+}
+
+/*********************
+FEATURE STYLES
+*********************/
+
+.features {
+  width: 90%;
+  margin: 100px auto 0;
+
+  .feature {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    img {
+      height: 80px;
+      width: auto;
+    }
+  }
+}
+
+/*********************
+SWIPER STYLES
+*********************/
+.swiper-container-horizontal > .swiper-scrollbar {
+  display: none;
+}
+
+/*********************
+BARBER STYLES
+*********************/
+
+.barbers {
+  width: 90%;
+  margin: 0 auto;
+
+  .barber-thumb {
+    border-radius: 100%;
+    margin: 0 auto;
+  }
+  .barber {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto 2em;
+  }
+}
+
+/*********************
+PRODUCTS STYLES
+*********************/
+
+.woocommerce {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.woocommerce .products ul,
+.woocommerce ul.products {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.woocommerce ul.products[class*="columns-"] li.product,
+.woocommerce-page ul.products[class*="columns-"] li.product {
+  float: none;
+  margin: 0 auto 2em;
+  width: 100%;
+}
+
+.custom-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+a.button.product_type_simple.add_to_cart_button.ajax_add_to_cart {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 50px;
+  padding: 12px 30px;
+  margin: 0;
+  line-height: 0;
+  font-family: "alternategothic2_btregular";
+  text-transform: uppercase;
+  font-weight: 100;
+  &:hover {
+    background: #000;
+    color: #fff;
+  }
+}
+
+.woocommerce ul.products li.product a {
+  color: #000;
+  &:hover {
+    color: #000;
+  }
+}
+
+#mc_embed_signup {
+  width: 90% !important;
+  margin: 0 auto 80px !important;
+}
+
+#mc_embed_signup .mc-field-group {
+  display: flex;
+  border: 1px solid #000 !important;
+  border-radius: 50px !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+#mce-EMAIL {
+  border-radius: 50% !important;
+}
+
+#mc_embed_signup .mc-field-group input {
+  padding: 10px !important;
+  font-size: 15px !important;
+}
+
+#mc_embed_signup .button {
+  width: 15% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: none !important;
+  color: #000 !important;
+  float: right !important;
+  line-height: 1em;
+}
+
+/*********************
+FOOTER STYLES
+*********************/
+
+.meta-footer {
+  background-color: #000;
+  padding: 10%;
+}
+
+.site-footer {
+  background-color: #222;
+  display: flex;
+}
+
+.ill-cut-you {
+  width: auto;
+  height: auto;
+  background-image: url("http://roughhands.local/wp-content/uploads/2018/11/Layer-55.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.widget {
+  color: #ddd;
+  a {
+    color: #ddd;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #fff;
+  }
+}
+
+.widget-title {
+  margin-top: 0;
+  font-style: italic;
+  color: #999;
+  font-weight: 100;
+}
+
+li.current-menu-item a {
+  color: #fff !important;
+}
+
+.site-info {
+  width: 90%;
+  margin: 0 auto;
+  color: #999;
+  a {
+    color: #ccc;
+  }
+  a:hover {
+    color: #eee;
+  }
+
+  .copyright {
+    font-size: 13px;
+    float: left;
+  }
+
+  .site-credit {
+    font-size: 13px;
+    float: right;
+  }
+}
+
+.swiper-container-horizontal {
+  position: relative;
+}
